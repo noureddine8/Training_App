@@ -1,6 +1,7 @@
 package com.example.training_app;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,8 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
+
+import static com.example.training_app.ExoActivity.EXO_KEY;
 
 public class RecViewAdapter extends  RecyclerView.Adapter<RecViewAdapter.ViewHolder> {
     private static final String TAG = "RecViewAdapter";
@@ -35,15 +38,28 @@ public class RecViewAdapter extends  RecyclerView.Adapter<RecViewAdapter.ViewHol
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        int len = exos.get(position).getMainMuscle().length;
+        String main = "Main muscles are : ";
+        for (int i = 0; i <len ; i++) {
+            if(i ==0){
+                main += exos.get(position).getMainMuscle()[i];
+            }
+            else{
+                main += " and "+ exos.get(position).getMainMuscle()[i];
+
+            }
+        }
 
         Log.d(TAG, "onBindViewHolder: Called");
         holder.title.setText(exos.get(position).getTitle());
-        holder.mainMuscle.setText("Main muscle : "+exos.get(position).getMainMuscle()[0]);
+        holder.mainMuscle.setText(main);
         Glide.with(context).asBitmap().load(exos.get(position).getImgUrl()).into(holder.img);
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Will be accomplished later", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context,ExoActivity.class);
+                intent.putExtra(EXO_KEY,exos.get(position));
+                context.startActivity(intent);
             }
         });
 
