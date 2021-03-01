@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parentItemId"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/plannedItemTextId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Training name"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/checkedCircleId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/trainingImgId"
+            android:src="@drawable/ic_checked_circle"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/emptyCircleId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/trainingImgId"
+            android:src="@drawable/ic_empty_circle" />
+
+        <ImageView
+            android:id="@+id/trainingImgId"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_below="@id/plannedItemTextId"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/setsItemId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trainingImgId"
+            android:text="sets"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/repsItemId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/setsItemId"
+            android:text="sets"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/descItemId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/repsItemId"
+            android:layout_marginTop="10dp"
+            android:text="desc"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

@@ -5,6 +5,11 @@ import java.util.ArrayList;
 public class Utils {
 
     private static ArrayList<Exos> exos;
+
+    public static ArrayList<Workout> getWorkouts() {
+        return workouts;
+    }
+
     private static ArrayList<Workout> workouts;
 
     public static void initExos() {
